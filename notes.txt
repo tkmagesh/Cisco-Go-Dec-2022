@@ -110,3 +110,8 @@ variables
 
 Constants
     Unused constants (package/function scope) is allowed
+
+Programming constructs
+    if else
+    switch case
+    for
