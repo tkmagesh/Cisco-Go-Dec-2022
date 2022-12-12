@@ -38,10 +38,40 @@ Why Go?
         - Close to hardware (No VM)
         - Cross compilation Support
         - Light weight concurrency model
-        
+
     3. Support for concurrency
         - Concurrency features are built in the language
             ex: go keyword, channel data type, range keyword, select case construct
         - Standard Library
             sync package
             sync/atomic package
+
+
+    To run a go program
+        go run <file_name.go>
+
+    To create a build
+        go build <file_name.go>
+
+    To create a build in a different name
+        go build -o <binary_name> <file_name.go>
+
+    To get the list of environment variables
+        go env
+        go env <variable_1> <variable_2>
+            ex: go env GOOS GOARCH
+    
+    To change the environment variables
+        go env -w <variable_1>=<value_1> <variable_2>=<value_2>
+        ex:
+            go env -w GOOS=windows GOARCH=386
+
+    To get the list of supported platforms for cross compilation
+        go tool dist list
+
+    To cross compile
+        GOOS=<target_os> GOARCH=<target_arch> go build <file_name.go>
+        ex:
+            GOOS=windows GOARCH=386 go build program.go
+
+    
