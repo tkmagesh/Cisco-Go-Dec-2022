@@ -1,4 +1,4 @@
-/* higher order functions - functions as return values (applied) */
+/* function type declaration*/
 
 package main
 
@@ -8,6 +8,8 @@ import (
 	"reflect"
 	"runtime"
 )
+
+type Operation func(int, int)
 
 func main() {
 	/*
@@ -28,7 +30,7 @@ func main() {
 
 }
 
-func getLogOperation(operationFn func(int, int)) func(int, int) {
+func getLogOperation(operationFn Operation) Operation {
 	fmt.Println("Deriving the function name")
 	funcName := runtime.FuncForPC(reflect.ValueOf(operationFn).Pointer()).Name()
 	return func(x, y int) {
