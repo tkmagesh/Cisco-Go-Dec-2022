@@ -132,3 +132,11 @@ functions
         - Functions can be assigned as values to variables
         - Functions can be passed as arguments to other functions
         - Functions can be returned as return results
+
+Error
+    What?
+        Any object that implements the "error" interface
+        
+    Creation
+        errors.New()
+        fmt.Errorf()
