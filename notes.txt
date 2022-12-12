@@ -107,3 +107,6 @@ variables
     Package scope
         := is NOT supported
         CAN have unused variables
+
+Constants
+    Unused constants (package/function scope) is allowed
