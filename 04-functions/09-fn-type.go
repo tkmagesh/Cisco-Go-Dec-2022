@@ -7,6 +7,7 @@ import (
 	"log"
 	"reflect"
 	"runtime"
+	"time"
 )
 
 type Operation func(int, int)
@@ -21,13 +22,40 @@ func main() {
 		logOperation(100, 200, subtract)
 	*/
 
-	add := getLogOperation(add)
-	add(100, 200)
-	add(10, 20)
-	add(1000, 2000)
-	/* subtract := getLogOperation(subtract)
-	subtract(100, 200) */
+	//composing "log" operation
+	/*
+		add := getLogOperation(add)
+		add(100, 200)
 
+		subtract := getLogOperation(subtract)
+		subtract(100, 200)
+	*/
+
+	//composing "profile" operation
+	/*
+		profileAdd := getProfileOperation(add)
+		profileAdd(100, 200)
+
+		profileSubtract := getProfileOperation(subtract)
+		profileSubtract(100, 200)
+	*/
+
+	//composing both "log" & "profile" operations
+	logAdd := getLogOperation(add)
+	profileLogAdd := getProfileOperation(logAdd)
+	profileLogAdd(100, 200)
+
+	getProfileOperation(getLogOperation(subtract))(100, 200)
+}
+
+func getProfileOperation(operationFn Operation) Operation {
+	funcName := runtime.FuncForPC(reflect.ValueOf(operationFn).Pointer()).Name()
+	return func(i1, i2 int) {
+		start := time.Now()
+		operationFn(i1, i2)
+		elapsed := time.Since(start)
+		fmt.Printf("Time taken for [%q] = %v\n", funcName, elapsed)
+	}
 }
 
 func getLogOperation(operationFn Operation) Operation {
