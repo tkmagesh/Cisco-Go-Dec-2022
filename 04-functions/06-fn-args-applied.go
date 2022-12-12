@@ -5,6 +5,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"reflect"
+	"runtime"
 )
 
 func main() {
@@ -32,9 +34,10 @@ func main() {
 }
 
 func logOperation(x, y int, operationFn func(int, int)) {
-	log.Println("operation started")
+	funcName := runtime.FuncForPC(reflect.ValueOf(operationFn).Pointer()).Name()
+	log.Printf("[%q] operation started\n", funcName)
 	operationFn(x, y)
-	log.Println("operation completed")
+	log.Printf("[%q] operation completed\n", funcName)
 }
 
 func logAdd(x, y int) {
