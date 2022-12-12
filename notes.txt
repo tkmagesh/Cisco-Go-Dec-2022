@@ -1,0 +1,47 @@
+Magesh Kuppan
+
+Schedule:
+    Commence    : 9:00 AM
+    Tea Break   : 10:30 AM (20 mins)
+    Lunch Break : 12:30 PM (1 hour)
+    Tea Break   : 3:00 PM (20 mins)
+    Wind up     : 5:00 PM
+
+Methodology:
+    - No powerpoints
+    - 100% hands on driven
+    - At least 50% of the participants are expected to have completed the assignment
+
+Software Requirements
+    - Go tools (https://go.dev/dl)
+    - Visual Studio Code (https://code.visualstudio.com/download)
+    - Go extensions for VS Code (https://marketplace.visualstudio.com/items?itemName=golang.Go)
+    - Git Client
+
+GitHub Repo
+    https://github.com/tkmagesh/cisco-go-dec-2022
+
+Why Go?
+    1. Simplicity
+        Only 25 Keywords
+        - No access modifiers
+        - No classes (only structs)
+        - No reference types (everything is a value)
+        - No inheritence (only composition)
+        - No exceptions (only errors)
+        - No "try catch finally" construct
+        - No pointer arithmetic
+        - No implicity type conversion
+
+    2. Performance
+        - Equivalent to C++
+        - Close to hardware (No VM)
+        - Cross compilation Support
+        - Light weight concurrency model
+        
+    3. Support for concurrency
+        - Concurrency features are built in the language
+            ex: go keyword, channel data type, range keyword, select case construct
+        - Standard Library
+            sync package
+            sync/atomic package
