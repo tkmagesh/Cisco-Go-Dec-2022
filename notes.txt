@@ -21,6 +21,14 @@ Software Requirements
 GitHub Repo
     https://github.com/tkmagesh/cisco-go-dec-2022
 
+Agenda
+    Day:01
+        Intro, Data Types, Constructs, functions, error handling, deferred functions
+    Day:02
+        Collections, structs, methods, interfaces, type assertion, modules & packages
+    Day:03
+        Concurrency, HTTP Services (Overview)
+
 Why Go?
     1. Simplicity
         Only 25 Keywords
@@ -115,3 +123,12 @@ Programming constructs
     if else
     switch case
     for
+
+functions
+    Functions with more than one return reuslt
+        Named return results
+    Anonymous functions
+    Higher Order functions (Functions as first class citizens)
+        - Functions can be assigned as values to variables
+        - Functions can be passed as arguments to other functions
+        - Functions can be returned as return results
