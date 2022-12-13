@@ -25,6 +25,7 @@ func main() {
 	fmt.Println("nos[:4] = ", nos[:4])
 
 	nosCopy := make([]int, len(nos))
+	// var nosCopy []int
 	copy(nosCopy, nos)
 
 	/*
