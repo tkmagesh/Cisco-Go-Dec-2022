@@ -158,3 +158,71 @@ Collections
 
     Map
         key/value collection 
+
+Modularity
+    Modules & Packages
+    Module
+        Any code that need to versioned / deployed together
+    Package
+        Internal organization of a module
+
+    Before Go.1.13 (No modules)
+        GOPATH
+            /bin
+                binary tools created in golang (yours / 3rd party)
+            /pkg
+                source code of the 3rd party packages
+            /src
+                /github.com
+                    /tkmagesh
+                        /myapp
+                            - app.go
+                            - *.go
+                                import "github.com/tkmagesh/myapp/pkg-1"
+                            /pkg-1
+                                a.go
+
+                        /pkg-2
+                            b.go
+                        
+    In Go 1.13 modules were introduced
+        go.mod
+            module name
+                (advisable : module name to mimic the complete repo path)
+            go min version
+            3rd party dependencies reference
+
+        To create a module
+            go mod init <module_name>
+
+        To run a module
+            go run .
+
+        To build a module
+            go build .
+        
+        To use a 3rd party package
+            go get <package_name>
+            go get github.com/fatih/color
+            go get github.com/fatih/color@latest
+
+        to update the go.mod file
+            go mod tidy
+
+        to download the 3rd package source code in to module cache (GOPATH/pkg)
+            go mod download
+
+        to localize the dependencies
+            go mod vendor
+
+        To refere to the module cache
+            go run -mod=mod .
+            go build -mod=mod .
+
+        Other useful commands
+            go mod graph
+            go mod why github.com/mattn/go-isatty
+            go mod veriy
+    Reference :
+        https://go.dev/ref/mod
+        
