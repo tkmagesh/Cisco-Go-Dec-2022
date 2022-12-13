@@ -64,6 +64,10 @@ Why Go?
     To create a build in a different name
         go build -o <binary_name> <file_name.go>
 
+    To analyse heap escape
+        go run -gcflags="-m" <program.go>
+        go build -gcflags="-m" <program.go>
+
     To get the list of environment variables
         go env
         go env <variable_1> <variable_2>
@@ -140,3 +144,17 @@ Error
     Creation
         errors.New()
         fmt.Errorf()
+
+Panic & Recovery
+    panic()
+    recover()
+
+Collections
+    Array
+        fixed size collection of data of the same type
+
+    Slice
+        varying size collection of data of the same type
+
+    Map
+        key/value collection 
