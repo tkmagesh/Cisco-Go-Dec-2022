@@ -31,5 +31,4 @@ func main() {
 	keyToRemove := "Notebook"
 	delete(productRanks, keyToRemove)
 	fmt.Println("After removing Notebook :", productRanks)
-
 }
