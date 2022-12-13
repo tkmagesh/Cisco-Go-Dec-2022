@@ -48,6 +48,11 @@ func main() {
 	/* Accessing the fields using the pointer */
 	empPtr := &emp
 	fmt.Println(empPtr.Name, empPtr.Id, empPtr.Salary)
+
+	//Pointer to a struct
+	// x := &Employee{}
+	x := new(Employee)
+	fmt.Println(x)
 }
 
 func PrintEmployee(emp Employee) {
