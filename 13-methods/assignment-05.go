@@ -46,6 +46,15 @@ func (p Product) Format() string {
 			3. are all the products costly stationary products?
 			etc
 
+	Write the apis for the following
+		Sort => Sort the products collection by any attribute
+			IMPORTANT : MUST Use sort.Sort() function
+            use cases:
+                1. sort the products collection by cost
+                2. sort the products collection by name
+                3. sort the products collection by units
+				etc
+
 */
 
 func main() {
