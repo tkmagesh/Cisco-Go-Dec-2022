@@ -28,6 +28,8 @@ func main() {
 	updateToTens(&nos)
 	fmt.Println(nos)
 
+	x := nos[3:4]
+	fmt.Printf("%#v\n", x)
 }
 
 func updateToTens(list *[5]int) {
