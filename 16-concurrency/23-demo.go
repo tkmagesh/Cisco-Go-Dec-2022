@@ -10,20 +10,24 @@ import (
 )
 
 func main() {
-	ch := generateFibonocci()
+	timeoutCh := timeout(5 * time.Second)
+	ch := generateFibonocci(timeoutCh)
 	for no := range ch {
 		fmt.Println(no)
 	}
 }
 
-func generateFibonocci() <-chan int {
-	ch := make(chan int)
-	stopCh := make(chan struct{})
+func timeout(d time.Duration) <-chan time.Time {
+	stopCh := make(chan time.Time)
 	go func() {
-		fmt.Scanln()
-		stopCh <- struct{}{}
+		time.Sleep(d)
+		stopCh <- time.Now()
 	}()
+	return stopCh
+}
 
+func generateFibonocci(stopCh <-chan time.Time) <-chan int {
+	ch := make(chan int)
 	go func() {
 		x, y := 0, 1
 	LOOP:
