@@ -6,6 +6,7 @@ import (
 
 //Share memory by communicating
 
+//consumer
 func main() {
 	/*
 		var ch chan int
@@ -17,6 +18,7 @@ func main() {
 	fmt.Println(result)
 }
 
+// producer
 func add(x, y int, ch chan int) {
 	result := x + y
 	ch <- result
