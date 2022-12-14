@@ -230,3 +230,9 @@ Modularity
 Concurrency
     Ability to have more than one execution path
     
+    To detect data race
+        go run --race <program.go>
+        go build --race <program.go>
+
+        NOTE: 
+            Do not create a production build with the rece detector
