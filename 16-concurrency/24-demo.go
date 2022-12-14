@@ -41,7 +41,6 @@ func generateFibonocci(stopCh <-chan time.Time) <-chan int {
 				time.Sleep(500 * time.Millisecond)
 				x, y = y, x+y
 			}
-
 		}
 		close(ch)
 	}()
