@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -16,6 +17,23 @@ func main() {
 	fmt.Println(sum(10, 20, []any{30, 40, []any{10, "20"}})) //=> 130
 }
 
-func sum( /*  */ ) int {
-
+func sum(data ...any) int {
+	result := 0
+	for _, v := range data {
+		switch val := v.(type) {
+		case int:
+			result += val
+		case string:
+			if no, err := strconv.Atoi(val); err == nil {
+				result += no
+			}
+		case []any:
+			result += sum(val...)
+		case []int:
+			for _, no := range val {
+				result += no
+			}
+		}
+	}
+	return result
 }
