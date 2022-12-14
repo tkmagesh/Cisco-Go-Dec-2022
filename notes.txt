@@ -236,3 +236,25 @@ Concurrency
 
         NOTE: 
             Do not create a production build with the rece detector
+
+    Channel
+        Data type designed to enable communication between goroutines
+
+        Declaration
+            var ch chan int
+
+        Instantiation
+            ch = make(chan int)
+            OR
+            ch := make(chan int)
+
+        Operations (<- operator)
+            Send Operation
+                ch <- data
+            Receive Operation
+                data = <- ch
+
+        Behavior
+            A RECEIVE operation is ALWAYS a blocking operation
+
+            A SEND operation is blocked until a RECEIVE operation is initiated (conditions apply)
