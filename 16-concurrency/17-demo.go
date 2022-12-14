@@ -15,6 +15,34 @@ func main() {
 	}
 }
 
+/*
+func fanIn(oddCh, evenCh <-chan int) <-chan int {
+	resultCh := make(chan int)
+	go func() {
+		wg := sync.WaitGroup{}
+		wg.Add(1)
+		go func() {
+			for oddNo := range oddCh {
+				resultCh <- oddNo
+			}
+			wg.Done()
+		}()
+
+		wg.Add(1)
+		go func() {
+			for evenNo := range evenCh {
+				resultCh <- evenNo
+			}
+			wg.Done()
+		}()
+
+		wg.Wait()
+		close(resultCh)
+	}()
+	return resultCh
+}
+*/
+
 func fanIn(chs ...<-chan int) <-chan int {
 	resultCh := make(chan int)
 	go func() {
@@ -33,6 +61,10 @@ func fanIn(chs ...<-chan int) <-chan int {
 	}()
 	return resultCh
 }
+
+/*
+
+ */
 
 func generateOdd() <-chan int {
 	ch := make(chan int)
