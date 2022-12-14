@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"sort"
+	"strings"
 )
 
 type Product struct {
@@ -24,11 +25,18 @@ Write the apis for the following
 type Products []Product
 
 func (products Products) String() string {
-	result := ""
+	/*
+		result := ""
+		for _, p := range products {
+			result += fmt.Sprintf("%s\n", p)
+		}
+		return result
+	*/
+	var b strings.Builder
 	for _, p := range products {
-		result += fmt.Sprintf("%s\n", p)
+		b.WriteString(fmt.Sprintf("%s\n", p))
 	}
-	return result
+	return b.String()
 }
 
 /*
