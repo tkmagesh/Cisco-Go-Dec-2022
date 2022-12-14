@@ -226,3 +226,7 @@ Modularity
     Reference :
         https://go.dev/ref/mod
         
+
+Concurrency
+    Ability to have more than one execution path
+    
